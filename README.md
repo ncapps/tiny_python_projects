@@ -23,6 +23,32 @@ Use `bin/new.py` to create a new progam with boilerplate code
 $ bin/new.py 01_hello/hello.py
 ```
 
+## Adding the #!(shebang) line
+The `env` program is looking for `python3` in the environment
+```
+#!/usr/bin/env python3
+```
+
+Make the python "executable" using the `chmod` (change mode) command
+```
+chmod +x hello.py
+```
+
+One of the biggest reasons to set the shebang line and make your program executable is so that you can install your Python programs just like other commands and programs
+
+The `$PATH` variable is a list of directories the OS will look in to find a program. If you copy your program to any of the directories listed in your $PATH, you can execute a program without the leading ./ and without having to be in the same directory as the program.
+
+Puts the ~/bin directory first in $PATH
+```
+PATH=~/bin:$PATH
+```
+
+Two kinds of command-line parameters
+type | example | required | default
+--- | --- | --- | ---
+Positional | `name` | Yes | No
+Optional | -n (short), --name (long) | No | Yes
+
 # Videos
 
 I've been making videos for each chapter on my YouTube channel:
