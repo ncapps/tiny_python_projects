@@ -17,6 +17,12 @@ The tests should define what it means for a program to be correct, and then we w
 In this project, I've written all the tests for you, but I also encourage you to write your own functions and tests.
 You should run the test suite after every change to your program to ensure you are making progress!
 
+## Writing new programs
+Use `bin/new.py` to create a new progam with boilerplate code
+```bash
+$ bin/new.py 01_hello/hello.py
+```
+
 # Videos
 
 I've been making videos for each chapter on my YouTube channel:
