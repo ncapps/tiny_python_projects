@@ -47,7 +47,7 @@ def main():
 
     args = get_args()
     vowel = args.vowel
-    trans = str.maketrans("aeiouAEIOU", args.vowel*5 + args.vowel.upper()*5)
+    trans = str.maketrans("aeiouAEIOU", vowel*5 + vowel.upper()*5)
 
     for line in args.text:
         print(f'{line.translate(trans)}')
