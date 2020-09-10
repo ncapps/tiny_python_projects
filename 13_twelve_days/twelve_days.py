@@ -43,22 +43,49 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-
-    print("\n".join(verse(day)
-                    for day in range(1, args.num + 1)))
+    verses = (verse(day) for day in range(1, args.num + 1))
+    print("\n\n".join(verses), file=args.outfile)
 
 
 # ---------------------------------------------------
 def verse(day):
-    """Create a version"""
-    return f'On the {day} day of Christmas,'
+    """Create a version"""   
+    ordinal = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth',
+               'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth']
+    gifts = ['partridge in a pear tree',
+             'Two turtle doves',
+             'Three French hens',
+             'Four calling birds',
+             'Five gold rings',
+             'Six geese a laying',
+             'Seven swans a swimming',
+             'Eight maids a milking',
+             'Nine ladies dancing',
+             'Ten lords a leaping',
+             'Eleven pipers piping',
+             'Twelve drummers drumming']
+    partridge = 'A' if day == 1 else 'And a'
+    
+    return '\n'.join([
+        f'On the {ordinal[day-1]} day of Christmas,',
+        f'My true love gave to me,',
+        *[f'{gifts[index-1]},' for index in range(day, 1, -1)],
+        f'{partridge} {gifts[0]}.'
+    ])
 
 
 # ---------------------------------------------------
 def test_verse():
     """verse unit tests"""
-    assert verse(1) == 'On the 1 day of Christmas,'
-    assert verse(2) == 'On the 2 day of Christmas,'
+    assert verse(1) == '\n'.join([
+        'On the first day of Christmas,', 'My true love gave to me,',
+        'A partridge in a pear tree.'
+    ])
+
+    assert verse(2) == '\n'.join([
+        'On the second day of Christmas,', 'My true love gave to me,',
+        'Two turtle doves,', 'And a partridge in a pear tree.'
+    ])
 
 
 # --------------------------------------------------
