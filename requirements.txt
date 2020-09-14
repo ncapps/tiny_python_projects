@@ -5,3 +5,5 @@ mypy
 pylint
 pytest
 yapf
+csvkit
+tabulate
