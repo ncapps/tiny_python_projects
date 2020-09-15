@@ -86,8 +86,14 @@ def main():
                 words.add(word.title())
 
     words = sorted(words)
-    for _ in range(0, args.num):
-        print(''.join(random.sample(words, args.num_words)))
+    # First generate all passwords so that randomness can be tested
+    passwords = [''.join(word for word in random.sample(words, args.num_words))
+                 for _ in range(args.num)]
+
+    if args.l33t:
+        passwords = map(l33t, passwords)
+
+    print('\n'.join(passwords))
 
 
 # --------------------------------------------------
