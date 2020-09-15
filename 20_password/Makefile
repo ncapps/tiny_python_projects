@@ -2,7 +2,7 @@
 
 WORDS = "../inputs/words.txt"
 
-test: words
+test:
 	pytest -xv test.py unit.py
 
 words:
