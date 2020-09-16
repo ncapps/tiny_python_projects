@@ -13,6 +13,6 @@ class State(NamedTuple):
     winner: Optional[str] = None
 
 
-state = State(quit='False')
+state = State(quit=False)
 
 print(state)
